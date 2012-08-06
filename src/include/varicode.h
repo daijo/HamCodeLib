@@ -7,5 +7,5 @@
 
 typedef uint16_t varicode_t;
 
-varicode_t varicodeFromChar(char character);
-char charFromVaricode(varicode_t code);
+varicode_t varicodeFromAscii(char character);
+char asciiFromVaricode(varicode_t code);

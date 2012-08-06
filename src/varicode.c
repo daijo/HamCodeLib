@@ -14,13 +14,13 @@ varicode_t codes[127] = { \
 
 /* Functions */
 
-varicode_t varicodeFromChar(char character)
+varicode_t varicodeFromAscii(char character)
 {
 
 	return codes[(uint8_t)character];
 }
 
-char charFromVaricode(varicode_t code)
+char asciiFromVaricode(varicode_t code)
 {
 	return 'a'; /* traverse huffman tree. */
 }
