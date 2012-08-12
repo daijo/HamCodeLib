@@ -6,6 +6,7 @@ OUTDIR = ./out
 ODIR = $(OUTDIR)/obj
 TESTODIR = $(OUTDIR)/test-obj
 IDIR = ./src/include
+DATADIR = ./gen
 
 # Toolchain
 
@@ -21,10 +22,10 @@ endif
 
 LIB = libVaricode.a
 
-_DEPS = varicode.h
+_DEPS = varicode.h varicode_data.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = varicode.o
+_OBJ = varicode.o varicode_data.o
 ifdef CROSS_COMPILE
 	ODIR = $(OUTDIR)/$(CROSS_COMPILE)obj
 	OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
@@ -56,6 +57,9 @@ main: $(OUTDIR)/$(CROSS_COMPILE)$(LIB)
 $(ODIR)/%.o: $(SRCDIR)/%.c $(DEPS) $(ODIR)/.d
 	$(CROSS_COMPILE)$(CC) -c -o $@ $< $(CFLAGS) $(MACH_ARG)
 
+$(ODIR)/%.o: $(DATADIR)/%.c $(DEPS) $(ODIR)/.d
+	$(CROSS_COMPILE)$(CC) -c -o $@ $< $(CFLAGS) $(MACH_ARG)
+
 $(OUTDIR)/$(CROSS_COMPILE)$(LIB): $(OBJ) $(OUTDIR)/.d
 	$(CROSS_COMPILE)$(AR) rs $@ $^
 
@@ -74,6 +78,9 @@ $(TESTODIR)/%.o: $(TESTDIR)/%.c $(DEPS) $(TESTODIR)/.d $(TESTDIR)/AllTests.c
 	clang -c -o $@ $< $(CFLAGS)
 
 $(TESTODIR)/%.o: $(SRCDIR)/%.c $(DEPS) $(TESTODIR)/.d
+	clang -c -o $@ $< $(CFLAGS) -fprofile-arcs -ftest-coverage
+
+$(TESTODIR)/%.o: $(DATADIR)/%.c $(DEPS) $(TESTODIR)/.d
 	clang -c -o $@ $< $(CFLAGS) -fprofile-arcs -ftest-coverage
 
 $(OUTDIR)/test-$(LIB): $(TESTOBJ) $(OUTDIR)/.d

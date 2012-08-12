@@ -139,3 +139,137 @@ void TestAsciiToVaricode(CuTest* tc)
 	CuAssertTrue(tc, 0x3B5 == varicodeFromAscii(127)); /* 127 Delete*/
 
 }
+
+void TestAsciiFromVaricode(CuTest* tc)
+{
+
+	CuAssertTrue(tc, asciiFromVaricode(0x2AB) == 0); /* 0-31 Control chars */
+	CuAssertTrue(tc, asciiFromVaricode(0x2DB) == 1);
+	CuAssertTrue(tc, asciiFromVaricode(0x2ED) == 2);
+	CuAssertTrue(tc, asciiFromVaricode(0x377) == 3);
+	CuAssertTrue(tc, asciiFromVaricode(0x2EB) == 4);
+	CuAssertTrue(tc, asciiFromVaricode(0x35F) == 5);
+	CuAssertTrue(tc, asciiFromVaricode(0x2EF) == 6);
+	CuAssertTrue(tc, asciiFromVaricode(0x2FD) == 7);
+	CuAssertTrue(tc, asciiFromVaricode(0x2FF) == 8);
+	CuAssertTrue(tc, asciiFromVaricode(0xEF) == 9);
+	CuAssertTrue(tc, asciiFromVaricode(0x1D) == 10);
+	CuAssertTrue(tc, asciiFromVaricode(0x36F) == 11);
+	CuAssertTrue(tc, asciiFromVaricode(0x2DD) == 12);
+	CuAssertTrue(tc, asciiFromVaricode(0x1F) == 13);
+	CuAssertTrue(tc, asciiFromVaricode(0x375) == 14);
+	CuAssertTrue(tc, asciiFromVaricode(0x3AB) == 15);
+	CuAssertTrue(tc, asciiFromVaricode(0x2F7) == 16);
+	CuAssertTrue(tc, asciiFromVaricode(0x2F5) == 17);
+	CuAssertTrue(tc, asciiFromVaricode(0x3AD) == 18);
+	CuAssertTrue(tc, asciiFromVaricode(0x3AF) == 19);
+	CuAssertTrue(tc, asciiFromVaricode(0x35B) == 20);
+	CuAssertTrue(tc, asciiFromVaricode(0x36B) == 21);
+	CuAssertTrue(tc, asciiFromVaricode(0x36D) == 22);
+	CuAssertTrue(tc, asciiFromVaricode(0x357) == 23);
+	CuAssertTrue(tc, asciiFromVaricode(0x37B) == 24);
+	CuAssertTrue(tc, asciiFromVaricode(0x37D) == 25);
+	CuAssertTrue(tc, asciiFromVaricode(0x3B7) == 26);
+	CuAssertTrue(tc, asciiFromVaricode(0x355) == 27);
+	CuAssertTrue(tc, asciiFromVaricode(0x35D) == 28);
+	CuAssertTrue(tc, asciiFromVaricode(0x3BB) == 29);
+	CuAssertTrue(tc, asciiFromVaricode(0x2FB) == 30);
+	CuAssertTrue(tc, asciiFromVaricode(0x37F) == 31);
+	CuAssertTrue(tc, asciiFromVaricode(0x1) == ' '); /* 32 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1FF) == '!'); /* 33 */
+	CuAssertTrue(tc, asciiFromVaricode(0x15F) == '"'); /* 34 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1F5) == '#'); /* 35 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1DB) == '$'); /* 36 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2D5) == '%'); /* 37 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2BB) == '&'); /* 38 */
+	CuAssertTrue(tc, asciiFromVaricode(0x17F) == '\''); /* 39 */
+	CuAssertTrue(tc, asciiFromVaricode(0xFB) == '('); /* 40 */
+	CuAssertTrue(tc, asciiFromVaricode(0xF7) == ')'); /* 41 */
+	CuAssertTrue(tc, asciiFromVaricode(0x16F) == '*'); /* 42 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1DF) == '+'); /* 43 */
+	CuAssertTrue(tc, asciiFromVaricode(0x75) == ','); /* 44 */
+	CuAssertTrue(tc, asciiFromVaricode(0x35) == '-'); /* 45 */
+	CuAssertTrue(tc, asciiFromVaricode(0x57) == '.'); /* 46 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1AF) == '/'); /* 47 */
+	CuAssertTrue(tc, asciiFromVaricode(0xB7) == '0'); /* 48 */
+	CuAssertTrue(tc, asciiFromVaricode(0xBD) == '1'); /* 49 */
+	CuAssertTrue(tc, asciiFromVaricode(0xED) == '2'); /* 50 */
+	CuAssertTrue(tc, asciiFromVaricode(0xFF) == '3'); /* 51 */
+	CuAssertTrue(tc, asciiFromVaricode(0x177) == '4'); /* 52 */
+	CuAssertTrue(tc, asciiFromVaricode(0x15B) == '5'); /* 53 */
+	CuAssertTrue(tc, asciiFromVaricode(0x16B) == '6'); /* 54 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1AD) == '7'); /* 55 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1AB) == '8'); /* 56 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1B7) == '9'); /* 57 */
+	CuAssertTrue(tc, asciiFromVaricode(0xF5) == ':'); /* 58 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1BD) == ';'); /* 59 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1ED) == '<'); /* 60 */
+	CuAssertTrue(tc, asciiFromVaricode(0x55) == '='); /* 61 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1D7) == '>'); /* 62 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2AF) == '?'); /* 63 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2BD) == '@'); /* 64 */
+	CuAssertTrue(tc, asciiFromVaricode(0x7D) == 'A'); /* 65 */
+	CuAssertTrue(tc, asciiFromVaricode(0xEB) == 'B'); /* 66 */
+	CuAssertTrue(tc, asciiFromVaricode(0xAD) == 'C'); /* 67 */
+	CuAssertTrue(tc, asciiFromVaricode(0xB5) == 'D'); /* 68 */
+	CuAssertTrue(tc, asciiFromVaricode(0x77) == 'E'); /* 69 */
+	CuAssertTrue(tc, asciiFromVaricode(0xDB) == 'F'); /* 70 */
+	CuAssertTrue(tc, asciiFromVaricode(0xFD) == 'G'); /* 71 */
+	CuAssertTrue(tc, asciiFromVaricode(0x155) == 'H'); /* 72 */
+	CuAssertTrue(tc, asciiFromVaricode(0x7F) == 'I'); /* 73 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1FD) == 'J'); /* 74 */
+	CuAssertTrue(tc, asciiFromVaricode(0x17D) == 'K'); /* 75 */
+	CuAssertTrue(tc, asciiFromVaricode(0xD7) == 'L'); /* 76 */
+	CuAssertTrue(tc, asciiFromVaricode(0xBB) == 'M'); /* 77 */
+	CuAssertTrue(tc, asciiFromVaricode(0xDD) == 'N'); /* 78 */
+	CuAssertTrue(tc, asciiFromVaricode(0xAB) == 'O'); /* 79 */
+	CuAssertTrue(tc, asciiFromVaricode(0xD5) == 'P'); /* 80 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1DD) == 'Q'); /* 81 */
+	CuAssertTrue(tc, asciiFromVaricode(0xAF) == 'R'); /* 82 */
+	CuAssertTrue(tc, asciiFromVaricode(0x6F) == 'S'); /* 83 */
+	CuAssertTrue(tc, asciiFromVaricode(0x6D) == 'T'); /* 84 */
+	CuAssertTrue(tc, asciiFromVaricode(0x157) == 'U'); /* 85 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1B5) == 'V'); /* 86 */
+	CuAssertTrue(tc, asciiFromVaricode(0x15D) == 'W'); /* 87 */
+	CuAssertTrue(tc, asciiFromVaricode(0x175) == 'X'); /* 88 */
+	CuAssertTrue(tc, asciiFromVaricode(0x17B) == 'Y'); /* 89 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2AD) == 'Z'); /* 90 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1F7) == '['); /* 91 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1EF) == '\\'); /* 92 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1FB) == ']'); /* 93 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2BF) == '^'); /* 94 */
+	CuAssertTrue(tc, asciiFromVaricode(0x16D) == '_'); /* 95 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2DF) == '`'); /* 96 */
+	CuAssertTrue(tc, asciiFromVaricode(0xB) == 'a'); /* 97 */
+	CuAssertTrue(tc, asciiFromVaricode(0x5F) == 'b'); /* 98 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2F) == 'c'); /* 99 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2D) == 'd'); /* 100 */
+	CuAssertTrue(tc, asciiFromVaricode(0x3) == 'e'); /* 101 */
+	CuAssertTrue(tc, asciiFromVaricode(0x3D) == 'f'); /* 102 */
+	CuAssertTrue(tc, asciiFromVaricode(0x5B) == 'g'); /* 103 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2B) == 'h'); /* 104 */
+	CuAssertTrue(tc, asciiFromVaricode(0xD) == 'i'); /* 105 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1EB) == 'j'); /* 106 */
+	CuAssertTrue(tc, asciiFromVaricode(0xBF) == 'k'); /* 107 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1B) == 'l'); /* 108 */
+	CuAssertTrue(tc, asciiFromVaricode(0x3B) == 'm'); /* 109 */
+	CuAssertTrue(tc, asciiFromVaricode(0xF) == 'n'); /* 110 */
+	CuAssertTrue(tc, asciiFromVaricode(0x7) == 'o'); /* 111 */
+	CuAssertTrue(tc, asciiFromVaricode(0x3F) == 'p'); /* 112 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1BF) =='q'); /* 113 */
+	CuAssertTrue(tc, asciiFromVaricode(0x15) == 'r'); /* 114 */
+	CuAssertTrue(tc, asciiFromVaricode(0x17) == 's'); /* 115 */
+	CuAssertTrue(tc, asciiFromVaricode(0x5) == 't'); /* 116 */
+	CuAssertTrue(tc, asciiFromVaricode(0x37) == 'u'); /* 117 */
+	CuAssertTrue(tc, asciiFromVaricode(0x7B) == 'v'); /* 118 */
+	CuAssertTrue(tc, asciiFromVaricode(0x6B) == 'w'); /* 119 */
+	CuAssertTrue(tc, asciiFromVaricode(0xDF) == 'x'); /* 120 */
+	CuAssertTrue(tc, asciiFromVaricode(0x5D) == 'y'); /* 121 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1D5) == 'z'); /* 122 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2B7) == '{'); /* 123 */
+	CuAssertTrue(tc, asciiFromVaricode(0x1BB) == '|'); /* 124 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2B5) == '}'); /* 125 */
+	CuAssertTrue(tc, asciiFromVaricode(0x2D7) == '~'); /* 126 */
+	CuAssertTrue(tc, asciiFromVaricode(0x3B5) == 127); /* 127 Delete*/
+
+}

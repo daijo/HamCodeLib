@@ -4,23 +4,23 @@
 */
 
 #include "varicode.h"
-
-/* Data */
-
-varicode_t codes[127] = { \
-	0x2AB /* NUL 0 */, \
-	0x2DB /* SOH 1 */, \
-	};
-
-/* Functions */
+#include "varicode_data.h"
 
 varicode_t varicodeFromAscii(char character)
 {
-
 	return codes[(uint8_t)character];
 }
 
 char asciiFromVaricode(varicode_t code)
 {
-	return 'a'; /* traverse huffman tree. */
+	uint8_t result = 0;
+
+	while (result < 128) {
+		if(codes[result] == code) {
+			break;
+		}
+		result++;
+	}
+
+	return (char)result;
 }
