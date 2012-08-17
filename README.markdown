@@ -18,7 +18,7 @@ Since the Ascii codes are a integer between 0 and 127 the can be used as indicie
 
 In the reverse lookup we are face with a speed vs. space consideration. For optimal speed we search for the Varicodes in a binary tree and then check the resulting node for the corresponding Ascii code.
 
-However since the restrictions on Varicodes to start and begin with 1 and never contain more than one consecutive 0, the tree wastes a lot af space. Since the varicode can be upto 10 bits long the depth of the binary tree is 9. This means it must contain at least 512 nodes. Only 128 of them contain a legal Varicode and hence a ASCII code.
+However since the restrictions on Varicodes to start and begin with 1 and never contain more than one consecutive 0, the tree wastes a lot af space. Since the varicode can be up to 10 bits long the depth of the binary tree is 9. This means it must contain at least 512 nodes. Only 128 of them contain a legal Varicode and hence a ASCII code.
 
 An array implementation would waste 384 bytes (assuming we use an array of bytes which would be enough to store the ASCII codes).
 
@@ -32,7 +32,7 @@ Dependencies
 ------------
 
 * C compiler
-* Common Lisp, clisp (for static data structure code generation, result already checked in)
+* Common Lisp, clisp and AWK (for static data structure code generation, result already checked in)
 
 Build
 -----
