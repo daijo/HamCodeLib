@@ -33,20 +33,6 @@ Test
 
 make test
 
-Morse Code
-----------
-
-Translating between the ASCII character set and Morse code.
-
-> Morse code is a method of transmitting text information as a series of on-off tones, lights, or clicks that can be directly understood by a skilled listener or observer without special equipment. - Wikipedia
-
-Varicode
---------
-
-Translating between the ASCII character set and varicode.
-
-> Varicode is a Huffman code for use in PSK31. It supports all ASCII characters, but the characters used most frequently have shorter codes. The space between characters is indicated by a 00 sequence, a variation of Fibonacci coding. Originally created for speeding up real-time keyboard-to-keyboard exchanges over low bandwidth links, it is a very useful format to shrink text files. Varicode is freely available. - Wikipedia
-
 Reference
 ---------
 
