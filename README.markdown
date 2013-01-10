@@ -8,6 +8,7 @@ Features
 
 * Varicode to/from ASCII
 * Morse code to/from ASCII
+* DTMF to/from ASCII
 * Morse timing calculations
 
 Backlog
@@ -15,7 +16,6 @@ Backlog
 
 * Morse Procodes
 * ITA2
-* DTMF
 
 Dependencies
 ------------
@@ -42,3 +42,4 @@ Reference
 * <https://en.wikipedia.org/wiki/Morse_code>
 * <https://en.wikipedia.org/wiki/Prosigns_for_Morse_code>
 * <https://en.wikipedia.org/wiki/Baudot_code>
+* <https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling>

@@ -22,10 +22,10 @@ endif
 
 LIB = libHamCode.a
 
-_DEPS = morsecode.h morsecode_data.h varicode.h varicode_data.h
+_DEPS = dtmf.h morsecode.h morsecode_data.h varicode.h varicode_data.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = morsecode.o morsecode_data.o varicode.o varicode_data.o
+_OBJ = dtmf.o morsecode.o morsecode_data.o varicode.o varicode_data.o
 ifdef CROSS_COMPILE
 	ODIR = $(OUTDIR)/$(CROSS_COMPILE)obj
 	OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
@@ -34,7 +34,7 @@ else
 	TESTOBJ = $(patsubst %,$(TESTODIR)/%,$(_OBJ))
 endif
 
-_TESTS = VaricodeTest.o MorsecodeTest.o CuTest.o AllTests.o
+_TESTS = DtmfTest.o VaricodeTest.o MorsecodeTest.o CuTest.o AllTests.o
 TESTS = $(patsubst %,$(TESTODIR)/%,$(_TESTS))
 
 # Make stuff
