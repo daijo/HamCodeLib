@@ -9,4 +9,4 @@
 char ascii[NUMBER_OF_MORSECODES];
 
 /* An array ... */
-TextMorseCode morse[NUMBER_OF_MORSECODES];
+morsecode_t morse[NUMBER_OF_MORSECODES];

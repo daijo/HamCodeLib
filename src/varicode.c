@@ -6,12 +6,12 @@
 #include "varicode.h"
 #include "varicode_data.h"
 
-varicode_t varicodeFromAscii(char character)
+varicode_t ham_varicode_from_ascii(char character)
 {
 	return codes[(uint8_t)character];
 }
 
-char asciiFromVaricode(varicode_t code)
+char ham_varicode_to_ascii(varicode_t code)
 {
 	uint8_t result = 0;
 

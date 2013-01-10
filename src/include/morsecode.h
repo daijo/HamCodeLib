@@ -3,6 +3,10 @@
 * Author: Daniel Hjort
 */
 
+
+#ifndef __MORSECODE_H__
+#define __MORSECODE_H__
+
 #include <inttypes.h>
 
 #define STD_WORD_PARIS_LEN 50
@@ -16,7 +20,7 @@
  * gap between charachters c
  * gap between words w
  */
-typedef char* TextMorseCode;
+typedef char* morsecode_t;
 
 typedef enum {
    DOT      = '.',
@@ -29,10 +33,10 @@ typedef enum {
 
 }*/
 
-TextMorseCode textMorseCodeFromAscii(char character);
+morsecode_t ham_morse_from_ascii(char character);
 
-char asciiFromTextMorseCode(TextMorseCode code);
+char ham_morse_to_ascii(morsecode_t code);
 
-double codeElementTime(MorseCodeElement element, uint8_t wordsPerMinute, uint8_t stdWordLength);
+double ham_morse_element_time(MorseCodeElement element, uint8_t words_per_minute, uint8_t std_word_length);
 
-
+#endif

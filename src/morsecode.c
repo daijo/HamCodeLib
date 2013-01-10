@@ -7,9 +7,9 @@
 #include "morsecode_data.h"
 #include <string.h>
 
-TextMorseCode textMorseCodeFromAscii(char character)
+morsecode_t ham_morse_from_ascii(char character)
 {
-	TextMorseCode result = "not found";
+	morsecode_t result = "not found";
 	char toFind = character;
 
 	if (toFind >= 'a' && toFind <= 'z') {
@@ -27,7 +27,7 @@ TextMorseCode textMorseCodeFromAscii(char character)
 	return result;
 }
 
-char asciiFromTextMorseCode(TextMorseCode code)
+char ham_morse_to_ascii(morsecode_t code)
 {
 	char result;
 
@@ -43,7 +43,7 @@ char asciiFromTextMorseCode(TextMorseCode code)
 	return result;
 }
 
-double codeElementTime(MorseCodeElement element, uint8_t wordsPerMinute, uint8_t stdWordLength)
+double ham_morse_element_time(MorseCodeElement element, uint8_t wordsPerMinute, uint8_t stdWordLength)
 {
 	double unitTime = (1.2 / wordsPerMinute) * (50.0/stdWordLength);
 	uint8_t numberOfUnits = 0;
